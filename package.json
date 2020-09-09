@@ -1,0 +1,24 @@
+{
+  "name": "mern-session-starter",
+  "version": "1.0.0",
+  "description": "A template for mern stack web application with session.",
+  "main": "server.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "prod": "node server.js",
+    "start": "if-env NODE_ENV=production && npm run prod || npm run dev",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "author": "Andrew Lin",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
