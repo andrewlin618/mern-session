@@ -23,7 +23,7 @@ function useProvideAuth() {
 
     // ... to save the user to state.
     const login = async (username, password) => {
-        await axios.post('/login', { username: username, password: password })
+        await axios.post('/auth/login', { username: username, password: password })
             .then(res => {
                 console.log('logged in!')
                 console.log(res.data)
@@ -38,7 +38,7 @@ function useProvideAuth() {
     };
 
     const signUp = async (username, password, gender) => {
-        await axios.post('/register', { username: username, password: password, gender: gender })
+        await axios.post('/auth/register', { username: username, password: password, gender: gender })
             .then(res => {
                 console.log('Signed up!')
                 console.log(res.data)
@@ -53,7 +53,7 @@ function useProvideAuth() {
     };
 
     const logout = async () => {
-        await axios.post('/logout')
+        await axios.post('/auth/logout')
             .then(setUser(null))
             .catch(e => console.log(e));
     };
@@ -77,7 +77,7 @@ function useProvideAuth() {
     //   };
     // Return the user object and auth method
     useEffect(() => {
-        axios.post('/authentication')
+        axios.post('/auth/authentication')
         .then(res => {
             if (res.data.username) {
                 setUser(res.data);
