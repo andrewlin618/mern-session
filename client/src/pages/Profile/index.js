@@ -9,7 +9,7 @@ const Profile = ({ username }) => {
   const auth = useAuth();
   useEffect(() => {
     async function fetchData(param) {
-      await axios.get('/api/user/' + param)
+      await axios.get('/api/user/' + param) 
         .then(res => {
           setData(res.data);
         })

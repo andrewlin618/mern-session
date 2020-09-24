@@ -25,7 +25,7 @@ app.use(session({
 
 app.use(routes);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT,() => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
