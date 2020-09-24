@@ -79,11 +79,15 @@ function useProvideAuth() {
     useEffect(() => {
         axios.post('/auth/authentication')
         .then(res => {
+            console.log('succeeded.');
             if (res.data.username) {
                 setUser(res.data);
             }
         })
-        .catch(e => console.log(e.response.data))
+        .catch(e => {
+            console.log('failed.')
+            console.log(e.response)
+        })
       }, []);
 
     return {
