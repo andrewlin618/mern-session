@@ -1,16 +1,15 @@
 const express = require('express');
+const app = express();
 const session = require('express-session');
 const routes = require('./routes');
-
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Session Settings;
 app.use(session({
