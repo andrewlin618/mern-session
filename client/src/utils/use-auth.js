@@ -79,13 +79,13 @@ function useProvideAuth() {
     useEffect(() => {
         axios.post('/auth/authentication')
         .then(res => {
-            console.log('succeeded.');
+            console.log('Auto authentication succeeded.');
             if (res.data.username) {
                 setUser(res.data);
             }
         })
         .catch(e => {
-            console.log('failed.')
+            console.log('Auto authentication failed.');
             console.log(e.response)
         })
       }, []);
