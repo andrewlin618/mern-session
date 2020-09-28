@@ -1,12 +1,12 @@
 const path = require("path");
-// const router = require("express").Router();
+const router = require("express").Router();
 
 // Import routes; 
 // const authRoutes = require("./authRoutes");
-const apiRoutes = require("./apiRoutes");
+// const apiRoutes = require("./apiRoutes");
 
-app.use('/api', (req, res) => {
-    res.send('api call')
+router.get('/api', (req, res) => {
+    res.send('Api call')
 });
 // router.use('/auth', authRoutes);
 

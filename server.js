@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const routes = require('./routes');
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));

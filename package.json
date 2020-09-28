@@ -4,9 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "prod": "node server.js",
+    "start": "if-env NODE_ENV=production && npm run prod || npm run dev",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
