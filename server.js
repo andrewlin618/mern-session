@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-// const session = require('express-session');
+const session = require('express-session');
 const routes = require('./routes');
 
 // Serve up static assets (usually on heroku)
@@ -15,15 +15,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Session Settings;
-// app.use(session({
-//     secret: 'some secret word',
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {
-//         maxAge: 1000 * 60 * 60 * 24,
-//         secure: false
-//     }
-// }))
+app.use(session({
+    secret: 'some secret word',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24,
+        secure: false
+    }
+}))
 
 app.use(routes);
 
