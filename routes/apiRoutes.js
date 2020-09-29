@@ -1,8 +1,6 @@
 const router = require("express").Router();
-const users = require("../data/users.json");
 const userController = require("../controllers/userController")
 const { isAdmin } = require("../middleware/authMiddleware.js")
-
 
 router.route("/")
     .get((req, res) => res.send('API call succeeded!'))

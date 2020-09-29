@@ -11,8 +11,8 @@
     "start": "if-env NODE_ENV=production && npm run prod || npm run dev",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["react", "express","session"],
+  "author": "Andrew Lin",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^5.3.0",
