@@ -2,8 +2,8 @@ const path = require("path");
 const router = require("express").Router();
 
 // Import routes; 
-// const apiRoutes = require("./apiRoutes");
-const authRoutes = require("./authRoutes");
+const apiRoutes = require("./apiRoutes");
+// const authRoutes = require("./authRoutes");s
 
 router.get("/test", (req, res) => {
     res.send("test call succeeded!")
