@@ -18,8 +18,16 @@ function App() {
 }
 
 function Home() {
+  const handleClick = () => {
+    axios.get('/api')
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
   return (
-    <h1>Home</h1>
+    <div className="home">
+      <h1>Home</h1>
+      <button onClick={handleClick}>Login</button>
+    </div>
   )
 }
 function Dashboard() {
