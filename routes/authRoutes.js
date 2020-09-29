@@ -13,6 +13,6 @@ router.route('/register')
 // .delete(authController.deleteAccount)
 // .put(authController.changePassword)
 
-router.route('/authentication')
-    .post(isAuthenticated, (req, res) => res.send(req.local))
+// router.route('/authentication')
+//     .post(isAuthenticated, (req, res) => res.send(req.local))
 module.exports = router;

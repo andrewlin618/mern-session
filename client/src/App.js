@@ -26,6 +26,7 @@ function App() {
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/profile/:name" component={ProfileWrapper} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
       </ProvideAuth>
