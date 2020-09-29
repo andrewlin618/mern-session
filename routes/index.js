@@ -2,16 +2,15 @@ const path = require("path");
 const router = require("express").Router();
 
 // Import routes; 
+// const authRoutes = require("./authRoutes");
 const apiRoutes = require("./apiRoutes");
-// const authRoutes = require("./authRoutes");s
 
-router.get("/test", (req, res) => {
-    res.send("test call succeeded!")
-});
+router.get('/test', (req, res) => {
+    res.send('Test route.')
+})
 
-router.use("/api", apiRoutes);
-
-// router.use("/auth", authRoutes);
+router.use('/api', apiRoutes);
+// router.use('/auth', authRoutes);
 
 // If no routes are hit, send the React app
 router.use("*", (req, res) =>
