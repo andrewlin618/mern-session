@@ -77,17 +77,17 @@ function useProvideAuth() {
     //   };
     // Return the user object and auth method
     useEffect(() => {
-        // axios.post('/auth/authentication')
-        // .then(res => {
-        //     console.log('Auto authentication succeeded.');
-        //     if (res.data.username) {
-        //         setUser(res.data);
-        //     }
-        // })
-        // .catch(e => {
-        //     console.log('Auto authentication failed.');
-        //     console.log(e.response)
-        // })
+        axios.post('/auth/authentication')
+        .then(res => {
+            console.log('Auto authentication succeeded.');
+            if (res.data.username) {
+                setUser(res.data);
+            }
+        })
+        .catch(e => {
+            console.log('Auto authentication failed.');
+            console.log(e.response)
+        })
       }, []);
 
     return {
