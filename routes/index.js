@@ -8,6 +8,7 @@ const apiRoutes = require("./apiRoutes");
 router.get('/test', (req, res) => {
     res.send('Test route.')
 })
+
 router.use('/api', apiRoutes);
 // router.use('/auth', authRoutes);
 
