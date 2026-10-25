@@ -1,17 +1,17 @@
 const users = require('../data/users.json')
+const withoutPassword = require('../utils/withoutPassword')
 
 module.exports = {
     login: (req, res) => {
         const user = users.find(user => user.username === req.body.username);
-        console.log(user);
         if (!user) {
-            return res.status('400').send("Username doesn't exist!");
+            return res.status(400).send("Username doesn't exist!");
         }
         if (user.password !== req.body.password) {
-            return res.status('403').send('Password is incorrect!');
+            return res.status(403).send('Password is incorrect!');
         }
         req.session.user = { username: user.username, password: user.password };
-        return res.send(user);
+        return res.send(withoutPassword(user));
     },
 
     logout: (req, res) => {
@@ -22,7 +22,7 @@ module.exports = {
     signUp: function (req, res) {
         const user = users.find((user) => user.username === req.body.username);
         if (user) {
-            res.status('400').send("Username already exists.");
+            return res.status(400).send("Username already exists.");
         }
         const newUser = {
             username: req.body.username,
@@ -35,7 +35,7 @@ module.exports = {
         };
         users.push(newUser);
         req.session.user = {username: newUser.username, password : newUser.password};
-        return res.send(newUser);
+        return res.send(withoutPassword(newUser));
     },
 
     changePassword: function (req, res) {

@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Session Settings;
 app.use(session({
-    secret: 'some secret word',
+    secret: process.env.SESSION_SECRET || 'some secret word',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -27,7 +27,7 @@ app.use(session({
 
 app.use(routes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT,() => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
